@@ -69,7 +69,7 @@ Route::get('/show-Medi-order/', [HomeController::class, 'showMediOrder'])->name(
 
 
 
-Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified', IsAdminMiddleware::class])->group(function () {
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'), IsAdminMiddleware::class])->group(function () {
     Route::get('/dashboard', [HomeController::class, 'adminDashboard'])->name('dashboard');
     Route::resource('doctor', DoctorController::class);
     Route::resource('blog', BlogController::class);
